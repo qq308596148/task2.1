@@ -1,0 +1,152 @@
+login as: yitchen
+Pre-authentication banner message from server:
+| Access to Brooklyn College computers is restricted to authorized users
+|         and approved educational and research purposes, only.
+End of banner message from server
+yitchen@146.245.252.28's password:
+Last login: Wed Jul 21 10:32:49 2021 from ool-4579a867.dyn.optonline.net
+[yitchen@sol28 ~]$ cd task1dot2
+[yitchen@sol28 task1dot2]$ add file modify.txt
+bash: add: command not found...
+[yitchen@sol28 task1dot2]$ svn add modify.txt
+svn: warning: W155010: '/users1/st/yitchen/task1dot2/modify.txt' not found
+svn: E200009: Could not add all targets because some targets don't exist
+svn: E200009: Illegal target for the requested operation
+[yitchen@sol28 task1dot2]$ svn add *
+A         conf
+A         conf/svnserve.conf
+A         conf/passwd
+A         conf/authz
+A         db
+A         db/txn-current-lock
+A         db/revs
+A         db/revs/0
+A         db/revs/0/0
+A         db/write-lock
+A         db/revprops
+A         db/revprops/0
+A         db/revprops/0/0
+A         db/current
+A         db/min-unpacked-rev
+A         db/fsfs.conf
+A         db/uuid
+A         db/fs-type
+A         db/transactions
+A         db/format
+A         db/txn-current
+A         db/txn-protorevs
+A         format
+A         hooks
+A         hooks/start-commit.tmpl
+A         hooks/post-revprop-change.tmpl
+A         hooks/pre-revprop-change.tmpl
+A         hooks/post-commit.tmpl
+A         hooks/post-lock.tmpl
+A         hooks/pre-commit.tmpl
+A         hooks/pre-lock.tmpl
+A         hooks/post-unlock.tmpl
+A         hooks/pre-unlock.tmpl
+A         locks
+A         locks/db.lock
+A         locks/db-logs.lock
+A         README.txt
+[yitchen@sol28 task1dot2]$ svn commit -m "make modifcation" *
+Adding         README.txt
+Adding         conf
+Adding         conf/authz
+Adding         conf/passwd
+Adding         conf/svnserve.conf
+Adding         db
+Adding         db/current
+Adding         db/format
+Adding         db/fs-type
+Adding         db/fsfs.conf
+Adding         db/min-unpacked-rev
+Adding         db/revprops
+Adding         db/revprops/0
+Adding         db/revprops/0/0
+Adding         db/revs
+Adding         db/revs/0
+Adding         db/revs/0/0
+Adding         db/transactions
+Adding         db/txn-current
+Adding         db/txn-current-lock
+Adding         db/txn-protorevs
+Adding         db/uuid
+Adding         db/write-lock
+Adding         format
+Adding         hooks
+Adding         hooks/post-commit.tmpl
+Adding         hooks/post-lock.tmpl
+Adding         hooks/post-revprop-change.tmpl
+Adding         hooks/post-unlock.tmpl
+Adding         hooks/pre-commit.tmpl
+Adding         hooks/pre-lock.tmpl
+Adding         hooks/pre-revprop-change.tmpl
+Adding         hooks/pre-unlock.tmpl
+Adding         hooks/start-commit.tmpl
+Adding         locks
+Adding         locks/db-logs.lock
+Adding         locks/db.lock
+Transmitting file data ...........................
+Committed revision 1.
+[yitchen@sol28 task1dot2]$
+
+
+login as: yitchen
+Pre-authentication banner message from server:
+| Access to Brooklyn College computers is restricted to authorized users
+|         and approved educational and research purposes, only.
+End of banner message from server
+yitchen@146.245.252.28's password:
+Last login: Wed Jul 21 11:37:10 2021 from ool-4579a867.dyn.optonline.net
+[yitchen@sol28 ~]$ cd task1dot2
+[yitchen@sol28 task1dot2]$ svn add README.txt
+svn: warning: W150002: '/users1/st/yitchen/task1dot2/README.txt' is already unde                      r version control
+svn: E200009: Could not add all targets because some targets are already version                      ed
+svn: E200009: Illegal target for the requested operation
+[yitchen@sol28 task1dot2]$ vim
+[yitchen@sol28 task1dot2]$ touch newfile.txt
+[yitchen@sol28 task1dot2]$ vim newfile.txt
+[yitchen@sol28 task1dot2]$ cat newfile.txt
+make some change
+[yitchen@sol28 task1dot2]$ svn commit -m "make some change" newfile.txt
+svn: E200009: Commit failed (details follow):
+svn: E200009: '/users1/st/yitchen/task1dot2/newfile.txt' is not under version co                      ntrol
+[yitchen@sol28 task1dot2]$ svn add newfile.txt
+A         newfile.txt
+[yitchen@sol28 task1dot2]$ vim newfile.txt
+[yitchen@sol28 task1dot2]$ svn commit -m "make some change" newfile.txt
+svn: E180001: Commit failed (details follow):
+svn: E180001: Unable to connect to a repository at URL 'file:///users1/st/yitchen/task1dot2           '
+svn: E180001: Unable to open an ra_local session to URL
+svn: E180001: Unable to open repository 'file:///users1/st/yitchen/task1dot2'
+svn: E125006: First line of '/users1/st/yitchen/task1dot2/format' contains non-digit
+[yitchen@sol28 task1dot2]$ svn checkout file:///users1/st/yitchen/task1dot2
+svn: E180001: Unable to connect to a repository at URL 'file:///users1/st/yitchen/task1dot2           '
+svn: E180001: Unable to open an ra_local session to URL
+svn: E180001: Unable to open repository 'file:///users1/st/yitchen/task1dot2'
+svn: E125006: First line of '/users1/st/yitchen/task1dot2/format' contains non-digit
+[yitchen@sol28 task1dot2]$ cd yitchen
+-bash: cd: yitchen: No such file or directory
+[yitchen@sol28 task1dot2]$ cd file:///users1/st/yitchen
+-bash: cd: file:///users1/st/yitchen: No such file or directory
+[yitchen@sol28 task1dot2]$ svnadmin create secondrepo
+svnadmin: E165002: '/users1/st/yitchen/task1dot2/secondrepo' is a subdirectory of an existi           ng repository rooted at '/users1/st/yitchen/task1dot2'
+[yitchen@sol28 task1dot2]$ ls
+conf  db  format  hooks  locks  newfile.txt  readme.txt  README.txt  task1dot2  WorkingCopy
+[yitchen@sol28 task1dot2]$ svn commit -m "make some change" newfile.txt
+svn: E180001: Commit failed (details follow):
+svn: E180001: Unable to connect to a repository at URL 'file:///users1/st/yitchen/task1dot2'
+svn: E180001: Unable to open an ra_local session to URL
+svn: E180001: Unable to open repository 'file:///users1/st/yitchen/task1dot2'
+svn: E125006: First line of '/users1/st/yitchen/task1dot2/format' contains non-digit
+[yitchen@sol28 task1dot2]$ ^C
+[yitchen@sol28 task1dot2]$ ^C
+[yitchen@sol28 task1dot2]$ vim format
+[yitchen@sol28 task1dot2]$ svn commit -m "make some change" newfile.txt
+Adding         newfile.txt
+Transmitting file data .
+Committed revision 2.
+[yitchen@sol28 task1dot2]$
+

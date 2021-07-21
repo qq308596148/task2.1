@@ -1,0 +1,18 @@
+                                                     Git                         Subersion
+clone the repo                                     git clone                   svn checkout
+Submit                                             git commit                  svn commit
+check the detail of update record                  git show                    svn cat
+confirm status                                     git status                  svn status
+confirm the difference                             git diff                    svn diff
+confirm record                                     git log                     svn log
+add                                                git add                     svn add
+move                                               git mv                      svn mv
+delete                                             git rm                      svn rm
+cancel the changed                                 git checkout/git reset      svn revert(※1)
+create branch                                      git branch                  svn copy(※2)
+switch branch                                      git checkout                svn switch
+merge                                              git merge                   svn merge
+create tag                                         git tag                     svn copy(※2)
+Update                                             git pull/git fetch          svn update
+ignore path                                        .gitignore                  .svnignore
+  
