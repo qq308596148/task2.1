@@ -15,4 +15,4 @@ merge                                              git merge                   s
 create tag                                         git tag                     svn copy(※2)
 Update                                             git pull/git fetch          svn update
 ignore path                                        .gitignore                  .svnignore
-  
+
